@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import "variables.scss";
+// 顶部边框线
+@mixin border-top($size, $col) {
+    border-top: solid $size $col;
+}
+
+// 底部边框线
+@mixin border-bottom($size, $col) {
+    border-bottom: solid $size $col;
+}
+
+// 圆角边框线
+@mixin border-line-radius($size, $col, $rad) {
+    border: solid $size $col;
+    border-radius: $rad;
+}
+
+// 背景图片
+@mixin background-img($link, $w, $h) {
+    background-image: url(../images/global/#{$link});
+    background-repeat: no-repeat;
+    @if $w=="contain" {
+        background-size: contain;
+    }
+    @else {
+        background-size: $w $h;
+    }
+}
+
+@mixin background-position-left {
+    background-position: left center;
+}
+
+// 页面板块布局
+@mixin page-mod-layout($top:0, $bottom:0) {
+    padding: $top .32rem $bottom .32rem;
+    background-color: $body-white;
+}
+
+// 百分比布局
+@mixin box-sizing-box {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@mixin small-btn($tc, $lc) {
+    display: block;
+    color: $tc;
+    padding: 0 .15rem;
+    height: .48rem;
+    text-align: center;
+    line-height: .48rem;
+    @include border-line-radius(1px, $lc, $border-rad-s);
+}
+
+// 大按钮
+@mixin big-btn {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: .36rem;
+    color: #fff;
+    background-color: $main-color;
+}
+
+@mixin cou-shadow {
+    box-shadow:0 3px 5px 1px #ddd;
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
